@@ -11,7 +11,6 @@ app.get('/api/users', async (req, res) => {
     res.json(users);
   });
   
-  
   // Atur port yang akan digunakan oleh server
 app.listen(port, () => {
     console.log(`Server berjalan di port ${port}`);
