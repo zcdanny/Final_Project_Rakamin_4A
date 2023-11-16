@@ -1,0 +1,98 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "BeliBersamaId",
+    "description": " "
+  },
+  "server": {
+    "url": "http://localhost:3000"
+  },
+  "tags": [
+    {
+      "name": "Products",
+      "description": "Products-API"
+    },
+    {
+      "name": "Orders",
+      "description": "Orders-API"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": ["Products"],
+        "summary": "Get All Products",
+        "responses": {
+          "200": {
+            "description": "Succes"
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "summary": "Get One Products by Id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Products Id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succes"
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      }
+    },
+    "/orders": {
+      "get": {
+        "tags": ["Orders"],
+        "summary": "Get All Orders",
+        "responses": {
+          "200": {
+            "description": "Succes"
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "tags": ["Orders"],
+        "summary": "Get One Orders by Id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Orders Id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succes"
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      }
+    }
+  }
+}
