@@ -4,9 +4,9 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class products extends Model {
     static associate(models) {
-        products.belongsTo(models.store, { foreignKey: 'store_id' });
-        products.hasMany(models.wishlist_products, { foreignKey: 'products_id' });
-        products.hasMany(models.order_items, { foreignKey: 'products_id' });
+      products.belongsTo(models.store, { foreignKey: "store_id" });
+      products.hasMany(models.wishlist_products, { foreignKey: "products_id" });
+      products.hasMany(models.order_items, { foreignKey: "products_id" });
     }
   }
 
@@ -34,9 +34,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      created_at: {
+      createdAt: {
         type: DataTypes.DATE,
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        field: "created_at",
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        field: "updated_at",
       },
     },
     {

@@ -20,9 +20,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
-      created_at: {
+      createdAt: {
+        type: DataTypes.DATE,
+        field: "created_at",
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      },
+      updatedAt: {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        field: "updated_at",
       },
       user_id: {
         type: DataTypes.INTEGER,

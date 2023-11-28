@@ -1,11 +1,15 @@
-const db = require("../models");
-const products = db.products;
+const { products } = require("../models");
+//const products = db.products;
 
 // Get All Products
 const getAllProducts = async (req, res) => {
   try {
     const Products = await products.findAll({});
-    res.status(200).send(Products);
+    return res.json({
+      status: 200,
+      message: "All Products",
+      data: Products,
+    });
   } catch (error) {
     res.status(404).send(error);
   }
@@ -17,7 +21,11 @@ const getOneProducts = async (req, res) => {
   try {
     const id = req.params.id;
     const Products = await products.findOne({ where: { id: id } });
-    res.status(200).send(Products);
+    return res.json({
+      status: 200,
+      message: "Products by Id",
+      data: Products,
+    });
   } catch (error) {
     res.status(404).send(error);
   }
