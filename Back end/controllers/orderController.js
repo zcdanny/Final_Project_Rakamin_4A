@@ -1,5 +1,4 @@
-const db = require("../models");
-const order = db.orders;
+const { order } = require("../models");
 
 // Get All Orders
 const getAllOrders = async (req, res) => {

@@ -1,5 +1,4 @@
 const { products } = require("../models");
-//const products = db.products;
 
 // Get All Products
 const getAllProducts = async (req, res) => {
@@ -16,7 +15,6 @@ const getAllProducts = async (req, res) => {
 };
 
 // Get Products by Id
-
 const getOneProducts = async (req, res) => {
   try {
     const id = req.params.id;
