@@ -23,11 +23,14 @@ module.exports = {
         type: Sequelize.STRING(255),
         allowNull: false,
       },
-      role: {
-        type: Sequelize.STRING(50),
-        allowNull: false,
+      refresh_token: {
+        type: Sequelize.TEXT,
       },
       created_at: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      },
+      updated_at: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },

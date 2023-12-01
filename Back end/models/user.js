@@ -4,9 +4,9 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     static associate(models) {
-      user.hasOne(models.store, { foreignKey: 'user_id' });
-      user.hasMany(models.wishlist_products, { foreignKey: 'user_id' });
-      user.hasMany(models.orders, { foreignKey: 'user_id' });
+      user.hasOne(models.store, { foreignKey: "user_id" });
+      user.hasMany(models.wishlist_products, { foreignKey: "user_id" });
+      user.hasMany(models.orders, { foreignKey: "user_id" });
     }
   }
 
@@ -26,18 +26,24 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-      role: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
+      refresh_token: {
+        type: DataTypes.TEXT,
       },
-      created_at: {
+      createdAt: {
         type: DataTypes.DATE,
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        field: "created_at",
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        field: "updated_at",
       },
     },
     {
       sequelize,
       modelName: "user",
+      freezeTableName: true,
     }
   );
 
